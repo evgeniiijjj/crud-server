@@ -35,7 +35,6 @@ public class PostController {
       response.sendError(HttpServletResponse.SC_NOT_FOUND);
     }
   }
-
   public void save(Reader body, HttpServletResponse response) throws IOException {
     response.setContentType(APPLICATION_JSON);
     final var gson = new Gson();
