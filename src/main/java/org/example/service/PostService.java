@@ -6,6 +6,7 @@ import org.example.repository.PostRepository;
 
 import java.util.List;
 
+
 public class PostService {
   private final PostRepository repository;
 

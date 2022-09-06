@@ -9,14 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Reader;
 
+
 public class PostController {
   public static final String APPLICATION_JSON = "application/json";
   private final PostService service;
   public final Gson gson;
 
-  public PostController(PostService service) {
+  public PostController(PostService service, Gson gson) {
     this.service = service;
-    gson = new Gson();
+    this.gson = gson;
   }
 
   public void get(long id, HttpServletResponse response) throws IOException {
