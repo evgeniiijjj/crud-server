@@ -2,12 +2,13 @@ package org.example.repository;
 
 import org.example.exception.NotFoundException;
 import org.example.model.Post;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-// Stub
+@Repository
 public class PostRepository {
 
   private long lastId;
