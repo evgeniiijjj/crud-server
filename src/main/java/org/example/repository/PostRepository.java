@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class PostRepository {
 
-  private long lastId;
+  private volatile long lastId;
   private final Map<Long, Post> posts;
 
   public PostRepository() {
