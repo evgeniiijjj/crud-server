@@ -1,7 +1,7 @@
 package org.example.model;
 
 public class Post {
-  private long id;
+  private volatile long id;
   private String content;
 
   public Post() {
