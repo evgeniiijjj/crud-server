@@ -26,7 +26,7 @@ public class PostRepository {
   }
 
   public Post save(Post post) throws NotFoundException {
-    if (post.getId() == 0) post.setId(lastId.incrementAndGet);
+    if (post.getId() == 0) post.setId(lastId.incrementAndGet());
     else if (!posts.containsKey(post.getId())) throw new NotFoundException();
     posts.put(post.getId(), post);
     return post;
