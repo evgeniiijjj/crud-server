@@ -8,14 +8,16 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
+
 @Repository
 public class PostRepository {
 
-  private volatile long lastId;
+  private final AtomicLong lastId;
   private final Map<Long, Post> posts;
 
   public PostRepository() {
     posts = new ConcurrentHashMap<>();
+    lastId = new AtomicLong();
   }
 
   public List<Post> all() {
@@ -27,7 +29,7 @@ public class PostRepository {
   }
 
   public Post save(Post post) throws NotFoundException {
-    if (post.getId() == 0) post.setId(++lastId);
+    if (post.getId() == 0) post.setId(lastId.icrementAndGet());
     else if (!posts.containsKey(post.getId())) throw new NotFoundException();
     posts.put(post.getId(), post);
     return post;
